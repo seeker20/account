@@ -1,4 +1,4 @@
-module github.com/hexya-addons/account
+module github.com/seeker20/account
 
 go 1.13
 
