@@ -2,7 +2,7 @@ package account
 
 import (
 	"github.com/hexya-addons/base"
-	"github.com/hexya-addons/web/webdata"
+	"github.com/hexya-addons/web/webtypes"
 	"github.com/hexya-erp/hexya/src/actions"
 	"github.com/hexya-erp/hexya/src/models"
 	"github.com/hexya-erp/hexya/src/models/operator"
@@ -644,7 +644,7 @@ credit or if you click the "Done" button.`},
 	h.Partner().Methods().MarkAsReconciled().DeclareMethod(
 		`MarkAsReconciled`,
 		func(rs m.PartnerSet) bool {
-			h.AccountPartialReconcile().NewSet(rs.Env()).CheckAccessRights(webdata.CheckAccessRightsArgs{"write", true})
+			h.AccountPartialReconcile().NewSet(rs.Env()).CheckAccessRights(webtypes.CheckAccessRightsArgs{"write", true})
 			return rs.Sudo().Write(h.Partner().NewData().SetLastTimeEntriesChecked(dates.Now()))
 		})
 

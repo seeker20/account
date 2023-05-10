@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hexya-addons/web/webdata"
+	"github.com/hexya-addons/web/webtypes"
 	"github.com/hexya-erp/hexya/src/actions"
 	"github.com/hexya-erp/hexya/src/models"
 	"github.com/hexya-erp/hexya/src/models/types"
@@ -1049,7 +1049,7 @@ set of tax defined for the chosen template is complete`},
 		})
 
 	h.WizardMultiChartsAccounts().Methods().FieldsViewGet().Extend("",
-		func(rs m.WizardMultiChartsAccountsSet, args webdata.FieldsViewGetParams) *webdata.FieldsViewData {
+		func(rs m.WizardMultiChartsAccountsSet, args webtypes.FieldsViewGetParams) *webtypes.FieldsViewData {
 			res := rs.Super().FieldsViewGet(args)
 			companies := h.Company().Search(rs.Env(), q.CompanyCondition{})
 			condition := q.AccountAccount().Deprecated().Equals(false).
